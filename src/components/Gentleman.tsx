@@ -12,7 +12,7 @@ export default function Gentleman({
   deleteGentleman(): void;
 }) {
   return (
-    <li className="gentleman">
+    <li className={"gentleman" + (data.selected ? " selected" : "")}>
       <div className="gentleman__avatar-container">
         <img
           className="gentleman__avatar"
