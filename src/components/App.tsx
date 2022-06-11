@@ -1,13 +1,17 @@
 import { useState } from "react";
-import GentlemanList from "./components/GentlemanList";
-import "./css/styles.css";
-import { gentlemanDataList } from "./data/gentlemanDataList";
+import GentlemanList from "./GentlemanList";
+import { gentlemanDataList } from "../data/gentlemanDataList";
+import SelectAllButton from "./SelectAllButton";
+
+import "../css/styles.css";
 
 export default function App() {
   const [dataList, setDataList] = useState(gentlemanDataList);
 
-  const selectAll = (): void => {
-    setDataList(dataList.map((data) => ({ ...data, selected: true })));
+  const selectAll = (newSelectedValue: boolean): void => {
+    setDataList(
+      dataList.map((data) => ({ ...data, selected: newSelectedValue }))
+    );
   };
 
   const deleteById = (id: number): void => {
@@ -33,9 +37,10 @@ export default function App() {
           {dataList.filter((data) => data.selected).length} gentlemen pointing
           at you
         </p>
-        <button className="button button--select" onClick={selectAll}>
-          Select all
-        </button>
+        <SelectAllButton
+          isAllSelected={dataList.every((data) => data.selected)}
+          selectAll={selectAll}
+        />
       </section>
       <main className="main">
         <GentlemanList
