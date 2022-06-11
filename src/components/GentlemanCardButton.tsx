@@ -3,7 +3,7 @@ export const enum BUTTON_VARIANTS {
   DANGER,
 }
 
-export default function Button({
+export default function GentlemanCardButton({
   action,
   variant,
 }: {

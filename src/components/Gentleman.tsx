@@ -1,5 +1,5 @@
 import { iGentleman } from "../interfaces/iGentleman";
-import Button, { BUTTON_VARIANTS } from "./Button";
+import GentlemanCardButton, { BUTTON_VARIANTS } from "./GentlemanCardButton";
 import Info from "./Info";
 
 export default function Gentleman({
@@ -24,8 +24,14 @@ export default function Gentleman({
         </span>
       </div>
       <Info data={data} />
-      <Button action={selectGentleman} variant={BUTTON_VARIANTS.SUCCESS} />
-      <Button action={deleteGentleman} variant={BUTTON_VARIANTS.DANGER} />
+      <GentlemanCardButton
+        action={selectGentleman}
+        variant={BUTTON_VARIANTS.SUCCESS}
+      />
+      <GentlemanCardButton
+        action={deleteGentleman}
+        variant={BUTTON_VARIANTS.DANGER}
+      />
     </li>
   );
 }
